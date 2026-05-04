@@ -134,19 +134,20 @@
     transition:color .15s ease;
   }
   .nav-links a:hover{color:var(--azul)}
-  .nav-cta{
+  .nav-links a.nav-cta{
     display:inline-flex;
     align-items:center;
     gap:8px;
     padding:10px 18px;
-    background:var(--negro);
+    background:var(--azul);
     color:#fff;
     border-radius:8px;
     font-size:14px;
     font-weight:600;
-    transition:background .2s ease;
+    transition:background .2s ease, transform .15s ease;
+    box-shadow:0 4px 0 var(--azul-oscuro);
   }
-  .nav-cta:hover{background:var(--azul)}
+  .nav-links a.nav-cta:hover{background:var(--azul-oscuro);color:#fff;transform:translateY(-1px)}
   .nav-toggle{display:none}
 
   @media (max-width:880px){
@@ -523,71 +524,142 @@
   .servicios-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:24px;
+    gap:20px;
+    align-items:stretch;
   }
   .servicio{
     background:#fff;
     border:1px solid var(--gris-15);
-    border-radius:16px;
-    padding:32px 28px;
+    border-radius:14px;
+    padding:34px 30px 30px;
     transition:border-color .2s ease, transform .25s ease;
     position:relative;
     overflow:hidden;
+    display:flex;
+    flex-direction:column;
   }
   .servicio:hover{
     border-color:var(--azul);
     transform:translateY(-4px);
   }
-  .servicio:nth-child(2){background:var(--azul-oscuro);color:#fff;border-color:var(--azul-oscuro)}
-  .servicio:nth-child(2) .servicio-precio{color:var(--azul-claro)}
-  .servicio:nth-child(2) p{color:#B8C7DB}
-  .servicio:nth-child(2) li{color:#D7DFEC}
-  .servicio:nth-child(2) li::before{background:var(--azul-claro)}
-
-  .servicio-icon{
-    width:54px;height:54px;
-    margin-bottom:22px;
-    display:grid;place-items:center;
-    background:var(--azul-soft);
-    border-radius:12px;
+  .servicio-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-size:11px;
+    font-weight:700;
     color:var(--azul);
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    margin-bottom:30px;
   }
-  .servicio:nth-child(2) .servicio-icon{
-    background:rgba(123,179,240,.15);
-    color:var(--azul-claro);
+  .servicio-tag::after{
+    content:"";
+    flex:1;
+    max-width:50px;
+    height:1px;
+    background:var(--gris-15);
+  }
+  .servicio-badge{
+    position:absolute;
+    top:18px;right:18px;
+    background:var(--amarillo);
+    color:var(--azul-oscuro);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.8px;
+    padding:5px 10px;
+    border-radius:6px;
+    transform:rotate(3deg);
+    text-transform:uppercase;
   }
   .servicio h3{
-    font-size:22px;
-    font-weight:700;
-    margin-bottom:10px;
-    letter-spacing:-.3px;
+    font-size:24px;
+    font-weight:800;
+    margin-bottom:12px;
+    letter-spacing:-.6px;
+    line-height:1.15;
   }
-  .servicio p{
+  .servicio p.servicio-desc{
     color:var(--gris-60);
     font-size:15px;
-    margin-bottom:20px;
+    margin-bottom:24px;
+    line-height:1.6;
   }
-  .servicio ul{list-style:none;margin-bottom:24px}
+  .servicio .incluye{
+    font-size:11px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--gris-60);
+    margin-bottom:10px;
+    display:block;
+  }
+  .servicio ul{list-style:none;margin-bottom:28px;flex:1}
   .servicio li{
-    font-size:14px;
+    font-size:14.5px;
     color:var(--gris-90);
-    padding:6px 0 6px 22px;
+    padding:7px 0 7px 22px;
     position:relative;
   }
   .servicio li::before{
     content:"";
     position:absolute;
-    left:0;top:14px;
+    left:0;top:15px;
     width:12px;height:2px;
     background:var(--azul);
   }
+  .servicio-foot{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    padding-top:22px;
+    border-top:1px solid var(--gris-15);
+  }
   .servicio-precio{
+    font-size:14px;
+    font-weight:700;
+    color:var(--negro);
+    letter-spacing:-.2px;
+  }
+  .servicio-precio em{
+    display:block;
+    font-style:normal;
+    font-size:10px;
+    font-weight:600;
+    color:var(--gris-60);
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:2px;
+  }
+  .servicio-cta{
     font-size:13px;
     font-weight:600;
     color:var(--azul);
-    text-transform:uppercase;
-    letter-spacing:.5px;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    transition:gap .2s ease;
   }
+  .servicio-cta:hover{gap:10px}
+
+  /* Card oscura del medio */
+  .servicio.dark{
+    background:var(--azul-oscuro);
+    color:#fff;
+    border-color:var(--azul-oscuro);
+  }
+  .servicio.dark .servicio-tag{color:var(--azul-claro)}
+  .servicio.dark .servicio-tag::after{background:rgba(255,255,255,.15)}
+  .servicio.dark p.servicio-desc{color:#B8C7DB}
+  .servicio.dark .incluye{color:#8B9BB3}
+  .servicio.dark li{color:#D7DFEC}
+  .servicio.dark li::before{background:var(--azul-claro)}
+  .servicio.dark .servicio-foot{border-top-color:rgba(255,255,255,.1)}
+  .servicio.dark .servicio-precio{color:#fff}
+  .servicio.dark .servicio-precio em{color:#8B9BB3}
+  .servicio.dark .servicio-cta{color:var(--azul-claro)}
 
   @media (max-width:880px){
     .servicios-grid{grid-template-columns:1fr}
@@ -1069,63 +1141,60 @@
 <section id="servicios">
   <div class="container">
     <span class="section-label reveal">Qué hago</span>
-    <h2 class="section-title reveal">No es magia, es código bien escrito.</h2>
-    <p class="section-sub reveal">Tres maneras de trabajar juntos. Elegís la que te sirva, o me decís qué necesitás y vemos.</p>
+    <h2 class="section-title reveal">Lo que te puedo armar.</h2>
+    <p class="section-sub reveal">Tres formas de trabajar conmigo. Si nada te cierra del todo, mandame un mensaje y vemos qué necesitás.</p>
 
     <div class="servicios-grid">
       <article class="servicio reveal">
-        <div class="servicio-icon">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="4" width="18" height="14" rx="1.5"/>
-            <path d="M3 8h18"/>
-            <path d="M7 13h6"/>
-          </svg>
-        </div>
+        <span class="servicio-tag">S/01 · Web</span>
         <h3>Página web completa</h3>
-        <p>Tu negocio con su propia casa en internet. Pensada para que la gente entre, te encuentre y termine comprando o reservando.</p>
+        <p class="servicio-desc">Tu negocio con su propia casa en internet. Que la gente entre, te encuentre y termine comprando, reservando o llamándote.</p>
+        <span class="incluye">Lo que recibís</span>
         <ul>
-          <li>Diseño desde cero</li>
+          <li>Diseño desde cero, no plantilla</li>
           <li>Hasta 5-6 secciones</li>
           <li>Optimizada para Google</li>
           <li>Dominio propio incluido</li>
         </ul>
-        <span class="servicio-precio">Desde $180.000</span>
+        <div class="servicio-foot">
+          <span class="servicio-precio"><em>Desde</em>$180.000</span>
+          <a class="servicio-cta" href="https://wa.me/5493412274850?text=Hola!%20Me%20interesa%20una%20p%C3%A1gina%20web%20completa." target="_blank" rel="noopener">Charlemos →</a>
+        </div>
       </article>
 
-      <article class="servicio reveal delay-1">
-        <div class="servicio-icon">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 3 L4 8 L4 18 L20 18 L20 8 Z"/>
-            <path d="M9 14h6"/>
-          </svg>
-        </div>
+      <article class="servicio dark reveal delay-1">
+        <span class="servicio-badge">El más pedido</span>
+        <span class="servicio-tag">S/02 · Landing</span>
         <h3>Landing page</h3>
-        <p>Una sola página, un solo objetivo. Para una promo, un evento, un lanzamiento, o ese producto que querés que vuele.</p>
+        <p class="servicio-desc">Una sola página, un solo objetivo. Para una promo, un evento, un lanzamiento, o ese producto que querés que vuele.</p>
+        <span class="incluye">Lo que recibís</span>
         <ul>
           <li>Foco en la conversión</li>
           <li>Lista en 3-5 días</li>
           <li>Conectada a WhatsApp o mail</li>
-          <li>Métricas para que veas qué pasa</li>
+          <li>Métricas para ver qué pasa</li>
         </ul>
-        <span class="servicio-precio">Desde $90.000</span>
+        <div class="servicio-foot">
+          <span class="servicio-precio"><em>Desde</em>$90.000</span>
+          <a class="servicio-cta" href="https://wa.me/5493412274850?text=Hola!%20Necesito%20una%20landing%20page." target="_blank" rel="noopener">Charlemos →</a>
+        </div>
       </article>
 
       <article class="servicio reveal delay-2">
-        <div class="servicio-icon">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="3"/>
-            <path d="M12 2 L12 6 M12 18 L12 22 M2 12 L6 12 M18 12 L22 12 M5 5 L8 8 M16 16 L19 19 M5 19 L8 16 M16 8 L19 5"/>
-          </svg>
-        </div>
+        <span class="servicio-tag">S/03 · Mantenimiento</span>
         <h3>Mantenimiento</h3>
-        <p>Ya tenés web pero está caída, lenta o vieja como cuadro de fonda. La pongo a punto y la dejo funcionando como debería.</p>
+        <p class="servicio-desc">Ya tenés web pero está caída, lenta o vieja como cuadro de fonda. La pongo a punto y la dejo funcionando como debería.</p>
+        <span class="incluye">Lo que recibís</span>
         <ul>
           <li>Arreglos puntuales</li>
           <li>Mejoras de velocidad</li>
           <li>Cambios de contenido</li>
           <li>Plan mensual opcional</li>
         </ul>
-        <span class="servicio-precio">Desde $25.000/mes</span>
+        <div class="servicio-foot">
+          <span class="servicio-precio"><em>Desde</em>$25.000<small style="font-size:11px;color:var(--gris-60);font-weight:500">/mes</small></span>
+          <a class="servicio-cta" href="https://wa.me/5493412274850?text=Hola!%20Necesito%20mantenimiento%20de%20mi%20web." target="_blank" rel="noopener">Charlemos →</a>
+        </div>
       </article>
     </div>
   </div>
