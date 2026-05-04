@@ -1,0 +1,1338 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FV Studio Digital — Páginas web para negocios reales</title>
+<meta name="description" content="Te armo una demo gratis de tu negocio. Si te gusta, la publicamos. Páginas web hechas en Argentina, sin chamuyo." />
+<meta name="theme-color" content="#1A56A0" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23102A4C'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='Inter,sans-serif' font-weight='800' font-size='22' fill='%23ffffff'%3E%26lt;FV%26gt;%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --azul:#1A56A0;
+    --azul-oscuro:#102A4C;
+    --azul-claro:#7BB3F0;
+    --azul-soft:#E7F0FB;
+    --negro:#0E1726;
+    --gris-90:#1F2A3A;
+    --gris-60:#5B6776;
+    --gris-30:#C9D1DA;
+    --gris-15:#E6EAEF;
+    --gris-08:#F2F4F7;
+    --bg:#FAFBFC;
+    --blanco:#FFFFFF;
+    --amarillo:#FFD43B;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    background:var(--bg);
+    color:var(--negro);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none}
+  img{max-width:100%;display:block}
+
+  .container{
+    width:100%;
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 22px;
+  }
+
+  /* ---------- BOTONES ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 22px;
+    border-radius:8px;
+    font-weight:600;
+    font-size:15px;
+    transition:transform .15s ease, box-shadow .2s ease, background .2s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:var(--azul);
+    color:#fff;
+    box-shadow:0 6px 0 var(--azul-oscuro);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 0 var(--azul-oscuro)}
+  .btn-primary:active{transform:translateY(2px);box-shadow:0 2px 0 var(--azul-oscuro)}
+  .btn-ghost{
+    background:#fff;
+    color:var(--negro);
+    border:2px solid var(--negro);
+  }
+  .btn-ghost:hover{background:var(--negro);color:#fff}
+  .btn-link{
+    color:var(--azul);
+    font-weight:600;
+    border-bottom:2px solid var(--azul);
+    padding-bottom:2px;
+  }
+
+  /* ---------- NAVBAR ---------- */
+  .nav{
+    position:fixed;
+    top:0;left:0;right:0;
+    background:rgba(250,251,252,.85);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    z-index:90;
+    border-bottom:1px solid transparent;
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .nav.scrolled{border-bottom-color:var(--gris-15)}
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 22px;
+    max-width:1180px;
+    margin:0 auto;
+  }
+  .logo{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-weight:700;
+    font-size:15px;
+  }
+  .logo-mark{
+    width:38px;height:38px;
+    background:var(--azul-oscuro);
+    border-radius:9px;
+    display:grid;place-items:center;
+    color:#fff;
+    font-weight:800;
+    font-size:13px;
+    letter-spacing:-.5px;
+  }
+  .logo-mark span{color:var(--azul-claro)}
+  .logo-text{display:flex;flex-direction:column;line-height:1.05}
+  .logo-text small{font-size:11px;color:var(--gris-60);font-weight:500;letter-spacing:.3px}
+
+  .nav-links{
+    display:flex;
+    gap:32px;
+    align-items:center;
+    list-style:none;
+  }
+  .nav-links a{
+    font-size:14px;
+    color:var(--gris-90);
+    font-weight:500;
+    transition:color .15s ease;
+  }
+  .nav-links a:hover{color:var(--azul)}
+  .nav-cta{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 18px;
+    background:var(--negro);
+    color:#fff;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:600;
+    transition:background .2s ease;
+  }
+  .nav-cta:hover{background:var(--azul)}
+  .nav-toggle{display:none}
+
+  @media (max-width:880px){
+    .nav-links{
+      position:fixed;
+      top:68px;left:0;right:0;
+      background:#fff;
+      flex-direction:column;
+      gap:0;
+      padding:10px 0;
+      border-bottom:1px solid var(--gris-15);
+      transform:translateY(-150%);
+      transition:transform .25s ease;
+    }
+    .nav-links.open{transform:translateY(0)}
+    .nav-links li{width:100%}
+    .nav-links a{display:block;padding:14px 22px;border-bottom:1px solid var(--gris-08)}
+    .nav-cta-wrap{display:none}
+    .nav-toggle{
+      display:grid;
+      place-items:center;
+      width:40px;height:40px;
+      border:1px solid var(--gris-15);
+      border-radius:8px;
+    }
+    .nav-toggle span,
+    .nav-toggle span::before,
+    .nav-toggle span::after{
+      content:"";
+      display:block;
+      width:18px;height:2px;
+      background:var(--negro);
+      position:relative;
+      transition:.2s;
+    }
+    .nav-toggle span::before{position:absolute;top:-6px;left:0}
+    .nav-toggle span::after{position:absolute;top:6px;left:0}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:140px 0 90px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:80px;right:-180px;
+    width:520px;height:520px;
+    background:
+      radial-gradient(circle, var(--azul-soft) 1.5px, transparent 1.5px) 0 0/22px 22px;
+    opacity:.6;
+    pointer-events:none;
+    z-index:0;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.2fr .9fr;
+    gap:60px;
+    align-items:center;
+    position:relative;
+    z-index:1;
+  }
+  .hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:#fff;
+    border:1px solid var(--gris-15);
+    padding:7px 14px 7px 8px;
+    border-radius:99px;
+    font-size:13px;
+    font-weight:500;
+    color:var(--gris-90);
+    margin-bottom:28px;
+    box-shadow:0 1px 0 rgba(15,23,42,.04);
+  }
+  .hero-badge .dot{
+    width:8px;height:8px;border-radius:50%;
+    background:#10b981;
+    box-shadow:0 0 0 4px rgba(16,185,129,.18);
+    animation:pulse 2s infinite;
+  }
+  @keyframes pulse{
+    0%,100%{box-shadow:0 0 0 4px rgba(16,185,129,.18)}
+    50%{box-shadow:0 0 0 8px rgba(16,185,129,.05)}
+  }
+
+  .hero h1{
+    font-size:clamp(38px, 6vw, 68px);
+    font-weight:800;
+    line-height:1.02;
+    letter-spacing:-1.5px;
+    margin-bottom:24px;
+  }
+  .hero h1 .marker{
+    position:relative;
+    display:inline-block;
+    color:var(--azul);
+  }
+  .hero h1 .marker svg{
+    position:absolute;
+    left:-4px;right:-4px;bottom:-10px;
+    width:calc(100% + 8px);
+    height:18px;
+    stroke:var(--azul-claro);
+    stroke-width:6;
+    fill:none;
+    stroke-linecap:round;
+  }
+  .hero p.lead{
+    font-size:18px;
+    color:var(--gris-60);
+    max-width:520px;
+    margin-bottom:32px;
+  }
+  .hero-ctas{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+  .hero-meta{
+    margin-top:38px;
+    display:flex;
+    gap:32px;
+    flex-wrap:wrap;
+    color:var(--gris-60);
+    font-size:14px;
+  }
+  .hero-meta strong{color:var(--negro);font-weight:700;display:block;font-size:22px;letter-spacing:-.5px}
+
+  /* Hero visual */
+  .hero-visual{
+    position:relative;
+    aspect-ratio:1/1.05;
+    max-width:440px;
+    margin-left:auto;
+  }
+  .browser{
+    position:absolute;
+    background:#fff;
+    border-radius:14px;
+    box-shadow:0 30px 60px -20px rgba(15,42,76,.25), 0 0 0 1px var(--gris-15);
+    overflow:hidden;
+  }
+  .browser-bar{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    padding:11px 14px;
+    background:#F2F4F7;
+    border-bottom:1px solid var(--gris-15);
+  }
+  .browser-bar i{width:10px;height:10px;border-radius:50%;background:var(--gris-30);display:block}
+  .browser-bar i:nth-child(1){background:#FF5F57}
+  .browser-bar i:nth-child(2){background:#FEBC2E}
+  .browser-bar i:nth-child(3){background:#28C840}
+  .browser-url{
+    flex:1;
+    margin-left:8px;
+    background:#fff;
+    border-radius:5px;
+    padding:4px 10px;
+    font-size:11px;
+    color:var(--gris-60);
+    border:1px solid var(--gris-15);
+  }
+  .browser-1{
+    inset:0 30% 35% 0;
+    transform:rotate(-2deg);
+    z-index:2;
+  }
+  .browser-1 .browser-body{
+    padding:18px;
+    height:calc(100% - 38px);
+    background:linear-gradient(180deg,#fff 0%,#F8FAFD 100%);
+  }
+  .browser-1 .skel-img{
+    height:55%;
+    background:
+      linear-gradient(135deg, var(--azul) 0%, #2E6FB8 100%);
+    border-radius:8px;
+    margin-bottom:10px;
+    position:relative;
+    overflow:hidden;
+  }
+  .browser-1 .skel-img::after{
+    content:"";
+    position:absolute;
+    bottom:10px;left:10px;
+    width:34px;height:5px;
+    background:rgba(255,255,255,.5);
+    border-radius:3px;
+  }
+  .browser-1 .skel-line{
+    height:6px;
+    background:var(--gris-15);
+    border-radius:3px;
+    margin-bottom:7px;
+  }
+  .browser-1 .skel-line.short{width:60%}
+  .browser-1 .skel-line.med{width:80%}
+
+  .browser-2{
+    inset:30% 0 0 28%;
+    transform:rotate(3deg);
+    z-index:3;
+  }
+  .browser-2 .browser-body{
+    padding:14px;
+    height:calc(100% - 38px);
+    background:#fff;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  .browser-2 .pill{
+    display:inline-block;
+    padding:3px 9px;
+    background:var(--azul-soft);
+    color:var(--azul);
+    border-radius:99px;
+    font-size:9px;
+    font-weight:600;
+    width:fit-content;
+  }
+  .browser-2 h4{
+    font-size:13px;
+    font-weight:700;
+    margin:4px 0 2px;
+  }
+  .browser-2 .price{
+    font-size:11px;
+    color:var(--gris-60);
+  }
+  .browser-2 .skel-line{
+    height:5px;
+    background:var(--gris-15);
+    border-radius:3px;
+  }
+
+  .floating-tag{
+    position:absolute;
+    background:#fff;
+    padding:10px 14px;
+    border-radius:10px;
+    box-shadow:0 10px 24px -10px rgba(15,42,76,.25), 0 0 0 1px var(--gris-15);
+    font-size:13px;
+    font-weight:500;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    z-index:4;
+  }
+  .floating-tag.t1{
+    top:-8px;right:0;
+    transform:rotate(4deg);
+  }
+  .floating-tag.t1 .emoji{
+    font-size:18px;
+    background:#FFF8DD;
+    width:32px;height:32px;
+    display:grid;place-items:center;
+    border-radius:8px;
+  }
+  .floating-tag.t2{
+    bottom:30px;left:-10px;
+    transform:rotate(-3deg);
+  }
+  .floating-tag.t2::before{
+    content:"";
+    width:10px;height:10px;
+    background:#10b981;
+    border-radius:50%;
+  }
+
+  @media (max-width:880px){
+    .hero{padding:110px 0 60px}
+    .hero-grid{grid-template-columns:1fr;gap:50px}
+    .hero-visual{max-width:360px;margin:0 auto}
+    .hero-meta{gap:24px}
+  }
+
+  /* ---------- SECCIÓN BASE ---------- */
+  section{padding:90px 0;position:relative}
+  .section-label{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-size:13px;
+    font-weight:600;
+    color:var(--azul);
+    letter-spacing:.5px;
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .section-label::before{
+    content:"";
+    width:28px;height:2px;
+    background:var(--azul);
+  }
+  .section-title{
+    font-size:clamp(28px,4vw,44px);
+    font-weight:800;
+    letter-spacing:-1px;
+    line-height:1.1;
+    margin-bottom:16px;
+    max-width:720px;
+  }
+  .section-sub{
+    color:var(--gris-60);
+    font-size:17px;
+    max-width:600px;
+    margin-bottom:50px;
+  }
+
+  /* ---------- CÓMO FUNCIONA ---------- */
+  .pasos{
+    background:#fff;
+    border-top:1px solid var(--gris-15);
+    border-bottom:1px solid var(--gris-15);
+  }
+  .pasos-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+    counter-reset:paso;
+  }
+  .paso{
+    position:relative;
+    padding:30px 26px 26px;
+    background:var(--gris-08);
+    border-radius:14px;
+    transition:transform .25s ease;
+  }
+  .paso:nth-child(2){transform:translateY(20px)}
+  .paso:nth-child(3){transform:translateY(40px)}
+  .paso:hover{transform:translateY(-4px)!important}
+  .paso-num{
+    font-size:78px;
+    font-weight:900;
+    line-height:1;
+    color:transparent;
+    -webkit-text-stroke:2px var(--azul);
+    margin-bottom:16px;
+    letter-spacing:-3px;
+  }
+  .paso h3{
+    font-size:20px;
+    font-weight:700;
+    margin-bottom:10px;
+    letter-spacing:-.3px;
+  }
+  .paso p{color:var(--gris-60);font-size:15px}
+  .paso-arrow{
+    position:absolute;
+    top:50%;right:-22px;
+    width:16px;
+    color:var(--gris-30);
+    transform:translateY(-50%);
+    z-index:1;
+  }
+  .paso:last-child .paso-arrow{display:none}
+
+  @media (max-width:880px){
+    .pasos-grid{grid-template-columns:1fr;gap:18px}
+    .paso:nth-child(2),.paso:nth-child(3){transform:none}
+    .paso-arrow{display:none}
+  }
+
+  /* ---------- SERVICIOS ---------- */
+  .servicios-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .servicio{
+    background:#fff;
+    border:1px solid var(--gris-15);
+    border-radius:16px;
+    padding:32px 28px;
+    transition:border-color .2s ease, transform .25s ease;
+    position:relative;
+    overflow:hidden;
+  }
+  .servicio:hover{
+    border-color:var(--azul);
+    transform:translateY(-4px);
+  }
+  .servicio:nth-child(2){background:var(--azul-oscuro);color:#fff;border-color:var(--azul-oscuro)}
+  .servicio:nth-child(2) .servicio-precio{color:var(--azul-claro)}
+  .servicio:nth-child(2) p{color:#B8C7DB}
+  .servicio:nth-child(2) li{color:#D7DFEC}
+  .servicio:nth-child(2) li::before{background:var(--azul-claro)}
+
+  .servicio-icon{
+    width:54px;height:54px;
+    margin-bottom:22px;
+    display:grid;place-items:center;
+    background:var(--azul-soft);
+    border-radius:12px;
+    color:var(--azul);
+  }
+  .servicio:nth-child(2) .servicio-icon{
+    background:rgba(123,179,240,.15);
+    color:var(--azul-claro);
+  }
+  .servicio h3{
+    font-size:22px;
+    font-weight:700;
+    margin-bottom:10px;
+    letter-spacing:-.3px;
+  }
+  .servicio p{
+    color:var(--gris-60);
+    font-size:15px;
+    margin-bottom:20px;
+  }
+  .servicio ul{list-style:none;margin-bottom:24px}
+  .servicio li{
+    font-size:14px;
+    color:var(--gris-90);
+    padding:6px 0 6px 22px;
+    position:relative;
+  }
+  .servicio li::before{
+    content:"";
+    position:absolute;
+    left:0;top:14px;
+    width:12px;height:2px;
+    background:var(--azul);
+  }
+  .servicio-precio{
+    font-size:13px;
+    font-weight:600;
+    color:var(--azul);
+    text-transform:uppercase;
+    letter-spacing:.5px;
+  }
+
+  @media (max-width:880px){
+    .servicios-grid{grid-template-columns:1fr}
+  }
+
+  /* ---------- TRABAJOS ---------- */
+  .trabajos{
+    background:var(--negro);
+    color:#fff;
+  }
+  .trabajos .section-label{color:var(--azul-claro)}
+  .trabajos .section-label::before{background:var(--azul-claro)}
+  .trabajos .section-sub{color:#A8B5C7}
+  .trabajos-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+  }
+  .trabajo{
+    background:var(--gris-90);
+    border-radius:14px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.06);
+    transition:transform .25s ease, border-color .25s ease;
+  }
+  .trabajo:hover{transform:translateY(-6px);border-color:var(--azul-claro)}
+  .trabajo-mock{
+    aspect-ratio:4/3;
+    position:relative;
+    overflow:hidden;
+    border-bottom:1px solid rgba(255,255,255,.06);
+  }
+  .trabajo-mock-bar{
+    display:flex;
+    gap:5px;
+    padding:9px 12px;
+    background:#0A1422;
+  }
+  .trabajo-mock-bar i{
+    width:7px;height:7px;border-radius:50%;
+    background:rgba(255,255,255,.15);
+  }
+  .trabajo-mock-screen{
+    position:absolute;
+    inset:25px 0 0;
+    padding:14px;
+  }
+  .mock-1{background:linear-gradient(135deg,#E8C547,#C29A1F)}
+  .mock-2{background:linear-gradient(140deg,#1A56A0,#0E2F5E)}
+  .mock-3{background:linear-gradient(145deg,#E5524F,#A8302E)}
+
+  .mock-content{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    color:#fff;
+  }
+  .mock-content .tag{
+    align-self:flex-start;
+    padding:3px 8px;
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(4px);
+    border-radius:99px;
+    font-size:10px;
+    font-weight:600;
+    margin-bottom:8px;
+  }
+  .mock-content h5{
+    font-size:18px;
+    font-weight:800;
+    letter-spacing:-.5px;
+    margin-bottom:4px;
+  }
+  .mock-content small{font-size:11px;opacity:.85}
+
+  .trabajo-info{
+    padding:20px 22px 22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+  }
+  .trabajo-info h4{
+    font-size:17px;
+    font-weight:700;
+    margin-bottom:2px;
+  }
+  .trabajo-info span{
+    font-size:13px;
+    color:#A8B5C7;
+  }
+  .trabajo-link{
+    color:var(--azul-claro);
+    font-size:13px;
+    font-weight:600;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:8px 14px;
+    border:1px solid rgba(123,179,240,.3);
+    border-radius:7px;
+    transition:.2s;
+  }
+  .trabajo-link:hover{
+    background:var(--azul-claro);
+    color:var(--azul-oscuro);
+    border-color:var(--azul-claro);
+  }
+
+  @media (max-width:880px){
+    .trabajos-grid{grid-template-columns:1fr}
+  }
+
+  /* ---------- SOBRE MÍ ---------- */
+  .sobre-mi{
+    position:relative;
+    overflow:hidden;
+  }
+  .sobre-mi::before{
+    content:"FELIPE";
+    position:absolute;
+    bottom:-20px;left:50%;
+    transform:translateX(-50%);
+    font-size:clamp(120px,20vw,260px);
+    font-weight:900;
+    color:rgba(26,86,160,.04);
+    letter-spacing:-8px;
+    pointer-events:none;
+  }
+  .sobre-mi-grid{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:60px;
+    align-items:center;
+    position:relative;
+    z-index:1;
+  }
+  .foto-wrap{
+    position:relative;
+    aspect-ratio:4/5;
+    max-width:340px;
+  }
+  .foto{
+    width:100%;height:100%;
+    background:
+      linear-gradient(135deg, var(--azul-oscuro) 0%, var(--azul) 100%);
+    border-radius:18px;
+    overflow:hidden;
+    position:relative;
+    display:grid;
+    place-items:center;
+    color:#fff;
+    box-shadow:0 30px 60px -20px rgba(15,42,76,.3);
+  }
+  .foto-iniciales{
+    font-size:96px;
+    font-weight:900;
+    letter-spacing:-3px;
+    opacity:.9;
+  }
+  .foto::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at 30% 20%, rgba(255,255,255,.18) 0%, transparent 50%);
+  }
+  .foto-tag{
+    position:absolute;
+    bottom:-16px;right:-16px;
+    background:#fff;
+    border:2px solid var(--negro);
+    padding:10px 16px;
+    border-radius:10px;
+    font-size:13px;
+    font-weight:600;
+    transform:rotate(3deg);
+    z-index:2;
+  }
+  .foto-tag span{color:var(--azul);display:block;font-size:11px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
+
+  .sobre-mi h2{
+    font-size:clamp(28px,4vw,40px);
+    font-weight:800;
+    letter-spacing:-1px;
+    line-height:1.15;
+    margin-bottom:24px;
+  }
+  .sobre-mi p{
+    color:var(--gris-90);
+    font-size:16.5px;
+    margin-bottom:18px;
+    line-height:1.65;
+  }
+  .sobre-mi p strong{color:var(--azul);font-weight:600}
+
+  .proyectos{
+    margin-top:32px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+  .proyecto-card{
+    padding:18px 20px;
+    background:#fff;
+    border:1px solid var(--gris-15);
+    border-radius:11px;
+    transition:.2s;
+  }
+  .proyecto-card:hover{border-color:var(--azul);transform:translateY(-2px)}
+  .proyecto-card .nombre{
+    font-size:15px;
+    font-weight:700;
+    margin-bottom:4px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .proyecto-card .nombre::before{
+    content:"";
+    width:8px;height:8px;
+    background:var(--azul-claro);
+    border-radius:2px;
+    transform:rotate(45deg);
+  }
+  .proyecto-card .nombre:hover::before{background:var(--azul)}
+  .proyecto-card .desc{font-size:13px;color:var(--gris-60)}
+
+  @media (max-width:880px){
+    .sobre-mi-grid{grid-template-columns:1fr;gap:40px}
+    .foto-wrap{margin:0 auto}
+    .proyectos{grid-template-columns:1fr}
+  }
+
+  /* ---------- CONTACTO ---------- */
+  .contacto{
+    background:linear-gradient(180deg, var(--azul-oscuro) 0%, #0B1F3D 100%);
+    color:#fff;
+    text-align:center;
+    overflow:hidden;
+  }
+  .contacto::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(circle, rgba(123,179,240,.08) 1px, transparent 1px) 0 0/30px 30px;
+    pointer-events:none;
+  }
+  .contacto-inner{position:relative;z-index:1;max-width:680px;margin:0 auto}
+  .contacto h2{
+    font-size:clamp(32px,5vw,52px);
+    font-weight:800;
+    letter-spacing:-1.5px;
+    line-height:1.05;
+    margin-bottom:18px;
+  }
+  .contacto h2 em{
+    font-style:normal;
+    color:var(--azul-claro);
+    position:relative;
+  }
+  .contacto p{
+    font-size:18px;
+    color:#B8C7DB;
+    margin-bottom:36px;
+  }
+  .contacto-ctas{
+    display:flex;
+    gap:14px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-bottom:32px;
+  }
+  .contacto .btn-primary{
+    background:var(--amarillo);
+    color:var(--azul-oscuro);
+    box-shadow:0 6px 0 #C9A50C;
+  }
+  .contacto .btn-primary:hover{box-shadow:0 8px 0 #C9A50C}
+  .contacto .btn-primary:active{box-shadow:0 2px 0 #C9A50C}
+  .contacto .btn-ghost{
+    background:transparent;
+    color:#fff;
+    border-color:rgba(255,255,255,.4);
+  }
+  .contacto .btn-ghost:hover{background:#fff;color:var(--azul-oscuro);border-color:#fff}
+  .contacto-meta{
+    display:flex;
+    gap:30px;
+    justify-content:center;
+    flex-wrap:wrap;
+    color:#A8B5C7;
+    font-size:14px;
+  }
+  .contacto-meta a:hover{color:var(--azul-claro)}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--negro);
+    color:#A8B5C7;
+    padding:36px 0 30px;
+    font-size:13.5px;
+  }
+  .footer-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  footer a:hover{color:#fff}
+  .footer-links{display:flex;gap:22px;flex-wrap:wrap}
+
+  /* ---------- WHATSAPP FLOTANTE ---------- */
+  .wa-float{
+    position:fixed;
+    bottom:22px;right:22px;
+    width:58px;height:58px;
+    background:#25D366;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    box-shadow:0 12px 24px -8px rgba(37,211,102,.55), 0 0 0 0 rgba(37,211,102,.5);
+    z-index:80;
+    transition:transform .2s ease;
+    animation:wa-pulse 2.5s infinite;
+  }
+  @keyframes wa-pulse{
+    0%,100%{box-shadow:0 12px 24px -8px rgba(37,211,102,.55), 0 0 0 0 rgba(37,211,102,.4)}
+    50%{box-shadow:0 12px 24px -8px rgba(37,211,102,.55), 0 0 0 14px rgba(37,211,102,0)}
+  }
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:30px;height:30px;fill:#fff}
+
+  /* ---------- ANIMACIONES SCROLL ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .reveal.visible{opacity:1;transform:translateY(0)}
+  .reveal.delay-1{transition-delay:.08s}
+  .reveal.delay-2{transition-delay:.16s}
+  .reveal.delay-3{transition-delay:.24s}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo" aria-label="FV Studio Digital">
+      <span class="logo-mark">&lt;<span>FV</span>&gt;</span>
+      <span class="logo-text">FV Studio<small>Digital</small></span>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#como-funciona">Cómo funciona</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#trabajos">Trabajos</a></li>
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li class="nav-cta-wrap"><a class="nav-cta" href="https://wa.me/5493412274850" target="_blank" rel="noopener">Hablemos →</a></li>
+    </ul>
+
+    <button class="nav-toggle" aria-label="Menú" id="navToggle"><span></span></button>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-badge reveal"><span class="dot"></span> Aceptando 2 proyectos para mayo</span>
+        <h1 class="reveal delay-1">
+          Hago páginas web<br>
+          para
+          <span class="marker">
+            negocios reales
+            <svg viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M2 8 Q 50 2, 100 6 T 198 5"/></svg>
+          </span>.
+        </h1>
+        <p class="lead reveal delay-2">
+          Te armo una demo de tu negocio sin que me pidas nada.
+          Si te copa, la publicamos. Si no, te quedás con la idea
+          y listo, no me debés ni un café.
+        </p>
+        <div class="hero-ctas reveal delay-3">
+          <a class="btn btn-primary" href="https://wa.me/5493412274850?text=Hola%20Felipe!%20Quiero%20una%20demo%20gratis%20para%20mi%20negocio." target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.7-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4 0-.2 0-.3-.1-.5l-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3s1 2.7 1.2 2.9c.2.2 2.1 3.2 5 4.4 2.9 1.2 2.9.8 3.5.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.2-.3-.2-.6-.4z"/>
+              <path d="M20.5 3.5C18.3 1.2 15.3 0 12 0 5.4 0 0 5.4 0 12c0 2.1.6 4.1 1.6 5.9L0 24l6.3-1.6c1.7.9 3.7 1.4 5.7 1.4 6.6 0 12-5.4 12-12 0-3.2-1.3-6.2-3.5-8.3zM12 22c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.5 15.7 2 13.9 2 12 2 6.5 6.5 2 12 2c2.7 0 5.2 1 7.1 2.9C20.9 6.8 22 9.3 22 12c0 5.5-4.5 10-10 10z"/>
+            </svg>
+            Mandame un mensaje
+          </a>
+          <a class="btn btn-ghost" href="#trabajos">Ver trabajos →</a>
+        </div>
+
+        <div class="hero-meta reveal delay-3">
+          <div><strong>2-5 días</strong>desde la demo hasta online</div>
+          <div><strong>0 obligación</strong>la demo es gratis y sin vueltas</div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal delay-2">
+        <div class="browser browser-1">
+          <div class="browser-bar">
+            <i></i><i></i><i></i>
+            <span class="browser-url">la-trattoria.com.ar</span>
+          </div>
+          <div class="browser-body">
+            <div class="skel-img"></div>
+            <div class="skel-line med"></div>
+            <div class="skel-line short"></div>
+            <div class="skel-line"></div>
+          </div>
+        </div>
+        <div class="browser browser-2">
+          <div class="browser-bar">
+            <i></i><i></i><i></i>
+            <span class="browser-url">menú</span>
+          </div>
+          <div class="browser-body">
+            <span class="pill">★ Recomendado</span>
+            <h4>Milanesa napolitana</h4>
+            <span class="price">$ 4.800</span>
+            <div class="skel-line"></div>
+            <div class="skel-line" style="width:70%"></div>
+          </div>
+        </div>
+
+        <div class="floating-tag t1">
+          <span class="emoji">⚡</span>
+          Demo lista en 48hs
+        </div>
+        <div class="floating-tag t2">
+          Online y funcionando
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ CÓMO FUNCIONA ============ -->
+<section class="pasos" id="como-funciona">
+  <div class="container">
+    <span class="section-label reveal">Cómo es la cosa</span>
+    <h2 class="section-title reveal">Tres pasos. Sin letra chica, sin contratos largos.</h2>
+
+    <div class="pasos-grid">
+      <div class="paso reveal">
+        <div class="paso-num">01</div>
+        <h3>Te armo una demo</h3>
+        <p>Sin que me pidas nada. Vos seguí con tu día, yo me siento, miro tu negocio en redes, y armo una primera versión de tu página. La hago real, no un mockup.</p>
+        <svg class="paso-arrow" viewBox="0 0 16 24" fill="currentColor"><path d="M2 2 L14 12 L2 22"/></svg>
+      </div>
+      <div class="paso reveal delay-1">
+        <div class="paso-num">02</div>
+        <h3>La ves y me decís</h3>
+        <p>Te paso el link, lo abrís desde el celu o la compu. Me decís qué te gusta, qué cambiarías, qué falta. Sin compromiso, ni siquiera tenés que comprarme nada.</p>
+        <svg class="paso-arrow" viewBox="0 0 16 24" fill="currentColor"><path d="M2 2 L14 12 L2 22"/></svg>
+      </div>
+      <div class="paso reveal delay-2">
+        <div class="paso-num">03</div>
+        <h3>La publicamos</h3>
+        <p>Si te cierra, ajustamos los detalles, conseguimos el dominio que quieras y la subimos. Tu negocio pasa a tener una página web propia, no solo un Instagram.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICIOS ============ -->
+<section id="servicios">
+  <div class="container">
+    <span class="section-label reveal">Qué hago</span>
+    <h2 class="section-title reveal">No es magia, es código bien escrito.</h2>
+    <p class="section-sub reveal">Tres maneras de trabajar juntos. Elegís la que te sirva, o me decís qué necesitás y vemos.</p>
+
+    <div class="servicios-grid">
+      <article class="servicio reveal">
+        <div class="servicio-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="14" rx="1.5"/>
+            <path d="M3 8h18"/>
+            <path d="M7 13h6"/>
+          </svg>
+        </div>
+        <h3>Página web completa</h3>
+        <p>Tu negocio con su propia casa en internet. Pensada para que la gente entre, te encuentre y termine comprando o reservando.</p>
+        <ul>
+          <li>Diseño desde cero</li>
+          <li>Hasta 5-6 secciones</li>
+          <li>Optimizada para Google</li>
+          <li>Dominio propio incluido</li>
+        </ul>
+        <span class="servicio-precio">Desde $180.000</span>
+      </article>
+
+      <article class="servicio reveal delay-1">
+        <div class="servicio-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3 L4 8 L4 18 L20 18 L20 8 Z"/>
+            <path d="M9 14h6"/>
+          </svg>
+        </div>
+        <h3>Landing page</h3>
+        <p>Una sola página, un solo objetivo. Para una promo, un evento, un lanzamiento, o ese producto que querés que vuele.</p>
+        <ul>
+          <li>Foco en la conversión</li>
+          <li>Lista en 3-5 días</li>
+          <li>Conectada a WhatsApp o mail</li>
+          <li>Métricas para que veas qué pasa</li>
+        </ul>
+        <span class="servicio-precio">Desde $90.000</span>
+      </article>
+
+      <article class="servicio reveal delay-2">
+        <div class="servicio-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 2 L12 6 M12 18 L12 22 M2 12 L6 12 M18 12 L22 12 M5 5 L8 8 M16 16 L19 19 M5 19 L8 16 M16 8 L19 5"/>
+          </svg>
+        </div>
+        <h3>Mantenimiento</h3>
+        <p>Ya tenés web pero está caída, lenta o vieja como cuadro de fonda. La pongo a punto y la dejo funcionando como debería.</p>
+        <ul>
+          <li>Arreglos puntuales</li>
+          <li>Mejoras de velocidad</li>
+          <li>Cambios de contenido</li>
+          <li>Plan mensual opcional</li>
+        </ul>
+        <span class="servicio-precio">Desde $25.000/mes</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRABAJOS ============ -->
+<section class="trabajos" id="trabajos">
+  <div class="container">
+    <span class="section-label reveal">Trabajos</span>
+    <h2 class="section-title reveal" style="color:#fff">Algunas demos que armé últimamente.</h2>
+    <p class="section-sub reveal">Tocá una y mirala como si fueras un cliente cualquiera. Así de simple es lo que recibís el primer día.</p>
+
+    <div class="trabajos-grid">
+      <article class="trabajo reveal">
+        <div class="trabajo-mock">
+          <div class="trabajo-mock-bar"><i></i><i></i><i></i></div>
+          <div class="trabajo-mock-screen mock-1">
+            <div class="mock-content">
+              <span class="tag">RESTAURANTE</span>
+              <h5>La Trattoria di Marco</h5>
+              <small>Cocina italiana · Rosario</small>
+            </div>
+          </div>
+        </div>
+        <div class="trabajo-info">
+          <div>
+            <h4>La Trattoria di Marco</h4>
+            <span>Restaurante</span>
+          </div>
+          <a class="trabajo-link" href="#" aria-label="Ver demo La Trattoria di Marco">Ver demo →</a>
+        </div>
+      </article>
+
+      <article class="trabajo reveal delay-1">
+        <div class="trabajo-mock">
+          <div class="trabajo-mock-bar"><i></i><i></i><i></i></div>
+          <div class="trabajo-mock-screen mock-2">
+            <div class="mock-content">
+              <span class="tag">INMOBILIARIA</span>
+              <h5>Estudio Norte</h5>
+              <small>Bienes raíces · Funes</small>
+            </div>
+          </div>
+        </div>
+        <div class="trabajo-info">
+          <div>
+            <h4>Estudio Norte</h4>
+            <span>Inmobiliaria</span>
+          </div>
+          <a class="trabajo-link" href="#" aria-label="Ver demo Estudio Norte">Ver demo →</a>
+        </div>
+      </article>
+
+      <article class="trabajo reveal delay-2">
+        <div class="trabajo-mock">
+          <div class="trabajo-mock-bar"><i></i><i></i><i></i></div>
+          <div class="trabajo-mock-screen mock-3">
+            <div class="mock-content">
+              <span class="tag">COMERCIO</span>
+              <h5>Ferretería San Juan</h5>
+              <small>Herramientas · Rosario</small>
+            </div>
+          </div>
+        </div>
+        <div class="trabajo-info">
+          <div>
+            <h4>Ferretería San Juan</h4>
+            <span>Comercio local</span>
+          </div>
+          <a class="trabajo-link" href="#" aria-label="Ver demo Ferretería San Juan">Ver demo →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOBRE MÍ ============ -->
+<section class="sobre-mi" id="sobre-mi">
+  <div class="container">
+    <div class="sobre-mi-grid">
+      <div class="reveal">
+        <div class="foto-wrap">
+          <div class="foto">
+            <span class="foto-iniciales">F</span>
+          </div>
+          <div class="foto-tag">
+            <span>Detrás de FV</span>
+            Felipe Veiga, 22
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal delay-1">
+        <span class="section-label">Quién está atrás</span>
+        <h2>Soy Felipe. Vivo en Rosario y desarrollo hace un par de años.</h2>
+        <p>
+          No soy una agencia con quince personas en una oficina. Soy un pibe
+          que hace páginas web, las hace bien, y cobra lo que vale. <strong>Esa es la
+          única magia.</strong>
+        </p>
+        <p>
+          Antes de arrancar FV Studio construí cosas reales. SaaS pagados,
+          apps en producción, integraciones con Stripe y bases de datos
+          de verdad. No vengo del marketing ni de un curso de tres meses,
+          vengo de programar.
+        </p>
+
+        <div class="proyectos">
+          <a class="proyecto-card" href="#">
+            <div class="nombre">Billify</div>
+            <div class="desc">SaaS de facturación para México. Stripe + Supabase, en producción.</div>
+          </a>
+          <a class="proyecto-card" href="https://hinch.ar" target="_blank" rel="noopener">
+            <div class="nombre">hinch.ar</div>
+            <div class="desc">App de carpool multiplataforma. React Native, iOS y Android.</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACTO ============ -->
+<section class="contacto" id="contacto">
+  <div class="container">
+    <div class="contacto-inner">
+      <h2>Bueno, ¿<em>arrancamos</em>?</h2>
+      <p>
+        Mandame un mensaje contándome de tu negocio. En 48hs te tengo
+        una demo lista para que la veas. Sin formularios de 20 campos,
+        sin reuniones de descubrimiento. Un mensaje y listo.
+      </p>
+
+      <div class="contacto-ctas">
+        <a class="btn btn-primary" href="https://wa.me/5493412274850?text=Hola%20Felipe!%20Quiero%20una%20demo%20de%20mi%20negocio." target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20.5 3.5C18.3 1.2 15.3 0 12 0 5.4 0 0 5.4 0 12c0 2.1.6 4.1 1.6 5.9L0 24l6.3-1.6c1.7.9 3.7 1.4 5.7 1.4 6.6 0 12-5.4 12-12 0-3.2-1.3-6.2-3.5-8.3zM12 22c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.5 15.7 2 13.9 2 12 2 6.5 6.5 2 12 2c2.7 0 5.2 1 7.1 2.9C20.9 6.8 22 9.3 22 12c0 5.5-4.5 10-10 10z"/>
+            <path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.7-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4 0-.2 0-.3-.1-.5l-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3s1 2.7 1.2 2.9c.2.2 2.1 3.2 5 4.4 2.9 1.2 2.9.8 3.5.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.2-.3-.2-.6-.4z"/>
+          </svg>
+          Hablemos por WhatsApp
+        </a>
+        <a class="btn btn-ghost" href="mailto:hola@fvstudio.digital">Mandar un mail →</a>
+      </div>
+
+      <div class="contacto-meta">
+        <a href="mailto:hola@fvstudio.digital">hola@fvstudio.digital</a>
+        <a href="https://wa.me/5493412274850" target="_blank" rel="noopener">+54 9 341 227 4850</a>
+        <span>Rosario, Argentina</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a href="#" class="logo">
+        <span class="logo-mark">&lt;<span>FV</span>&gt;</span>
+        <span class="logo-text" style="color:#fff">FV Studio<small style="color:#A8B5C7">Digital</small></span>
+      </a>
+      <div class="footer-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#trabajos">Trabajos</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="mailto:hola@fvstudio.digital">hola@fvstudio.digital</a>
+      </div>
+      <div>© 2026 FV Studio Digital. Hecho en Rosario.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ WHATSAPP FLOTANTE ============ -->
+<a class="wa-float" href="https://wa.me/5493412274850" target="_blank" rel="noopener" aria-label="Hablar por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.7-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4 0-.2 0-.3-.1-.5l-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3s1 2.7 1.2 2.9c.2.2 2.1 3.2 5 4.4 2.9 1.2 2.9.8 3.5.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.2-.3-.2-.6-.4z"/>
+    <path d="M20.5 3.5C18.3 1.2 15.3 0 12 0 5.4 0 0 5.4 0 12c0 2.1.6 4.1 1.6 5.9L0 24l6.3-1.6c1.7.9 3.7 1.4 5.7 1.4 6.6 0 12-5.4 12-12 0-3.2-1.3-6.2-3.5-8.3zM12 22c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.5 15.7 2 13.9 2 12 2 6.5 6.5 2 12 2c2.7 0 5.2 1 7.1 2.9C20.9 6.8 22 9.3 22 12c0 5.5-4.5 10-10 10z"/>
+  </svg>
+</a>
+
+<script>
+  // Navbar con borde al hacer scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 8);
+  }, { passive: true });
+
+  // Menú mobile
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => links.classList.remove('open'));
+  });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
