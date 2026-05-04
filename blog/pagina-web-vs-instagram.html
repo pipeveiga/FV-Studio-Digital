@@ -12,8 +12,12 @@
 <meta name="theme-color" content="#1A56A0" />
 <link rel="canonical" href="https://fvstudio.digital/blog/pagina-web-vs-instagram" />
 
-<link rel="icon" type="image/png" href="/assets/logo-icon.png" />
+<link rel="icon" sizes="any" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/logo-icon.png" />
 <link rel="apple-touch-icon" href="/assets/logo.png" />
+
+<!-- Preload critical above-the-fold image -->
+<link rel="preload" as="image" href="/assets/logo.png" fetchpriority="high" />
 
 
 <link rel="manifest" href="/manifest.json" />
@@ -85,6 +89,8 @@
 </head>
 <body>
 
+<a class="skip-to-content" href="#main">Ir al contenido</a>
+
 <nav class="nav">
   <div class="nav-inner">
     <a href="/" class="logo" aria-label="FV Studio Digital">
@@ -113,7 +119,7 @@
   </nav>
 </div>
 
-<header class="article-header">
+<header class="article-header" id="main">
   <div class="container-narrow">
     <div class="article-meta">
       <span>Estrategia</span>
@@ -209,7 +215,7 @@
 
     <h2>Conclusión práctica</h2>
     <p>Si estás dudando, la respuesta es: <strong>arrancá con Instagram, pero a los 3 a 6 meses sumá web propia</strong>. Cuando tengas web, Instagram se vuelve mucho más poderoso porque tenés un destino claro al que mandar a la gente.</p>
-    <p>Si querés conocer la inversión que implica una web propia, podés revisar la <a href="/blog/cuanto-cuesta-pagina-web-argentina">guía de precios</a> y la <a href="/blog/sistema-turnos-online-guia">guía de sistemas de turnos</a> (si tu negocio coordina reservas).</p>
+    <p>Si querés conocer la inversión que implica una web propia, podés revisar la <a href="/blog/cuanto-cuesta-pagina-web-argentina">guía de precios</a>, las páginas dedicadas a <a href="/web-para-restaurantes">restaurantes</a> o <a href="/web-para-abogados">abogados</a>, y la <a href="/blog/sistema-turnos-online-guia">guía de sistemas de turnos</a> (si tu negocio coordina reservas).</p>
 
   </div>
 </article>

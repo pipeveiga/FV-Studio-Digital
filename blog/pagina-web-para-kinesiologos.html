@@ -12,8 +12,12 @@
 <meta name="theme-color" content="#1A56A0" />
 <link rel="canonical" href="https://fvstudio.digital/blog/pagina-web-para-kinesiologos" />
 
-<link rel="icon" type="image/png" href="/assets/logo-icon.png" />
+<link rel="icon" sizes="any" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/logo-icon.png" />
 <link rel="apple-touch-icon" href="/assets/logo.png" />
+
+<!-- Preload critical above-the-fold image -->
+<link rel="preload" as="image" href="/assets/logo.png" fetchpriority="high" />
 
 
 <link rel="manifest" href="/manifest.json" />
@@ -70,6 +74,8 @@
 </head>
 <body>
 
+<a class="skip-to-content" href="#main">Ir al contenido</a>
+
 <nav class="nav">
   <div class="nav-inner">
     <a href="/" class="logo" aria-label="FV Studio Digital">
@@ -98,7 +104,7 @@
   </nav>
 </div>
 
-<header class="article-header">
+<header class="article-header" id="main">
   <div class="container-narrow">
     <div class="article-meta">
       <span>Profesionales</span>
@@ -135,7 +141,7 @@
     <p>Es una de las preguntas más frecuentes que los pacientes hacen antes de pedir un turno. Tener un listado claro y actualizado de obras sociales y prepagas en tu sitio te ahorra decenas de mensajes por día.</p>
 
     <h3>3. Sistema de turnos online</h3>
-    <p>Para una práctica de kinesiología, el sistema de turnos es prácticamente obligatorio. Permite que los pacientes reserven, cancelen y reprogramen sin pasar por WhatsApp ni teléfono. Reduce ausentismo (con recordatorios automáticos) y libera tiempo administrativo. Si querés profundizar en este punto, leé la <a href="/blog/sistema-turnos-online-guia">guía completa de sistemas de turnos online</a>.</p>
+    <p>Para una práctica de kinesiología, el sistema de turnos es prácticamente obligatorio. Permite que los pacientes reserven, cancelen y reprogramen sin pasar por WhatsApp ni teléfono. Reduce ausentismo (con recordatorios automáticos) y libera tiempo administrativo. Si querés profundizar en este punto, leé la <a href="/blog/sistema-turnos-online-guia">guía completa de sistemas de turnos online</a> o conocé el servicio en <a href="/web-para-medicos-consultorios">páginas web para consultorios</a>.</p>
 
     <h3>4. Ubicación con mapa</h3>
     <p>Google Maps embebido en la página de contacto. Los pacientes que vienen por primera vez necesitan encontrarte fácilmente, y un mapa interactivo simplifica la primera visita.</p>

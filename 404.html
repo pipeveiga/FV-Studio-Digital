@@ -9,8 +9,12 @@
 <meta name="robots" content="noindex, follow" />
 <meta name="theme-color" content="#1A56A0" />
 
-<link rel="icon" type="image/png" href="/assets/logo-icon.png" />
+<link rel="icon" sizes="any" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/logo-icon.png" />
 <link rel="apple-touch-icon" href="/assets/logo.png" />
+
+<!-- Preload critical above-the-fold image -->
+<link rel="preload" as="image" href="/assets/logo.png" fetchpriority="high" />
 
 
 <link rel="manifest" href="/manifest.json" />
@@ -245,9 +249,39 @@
     .err-num{letter-spacing:-4px}
     main{padding:50px 22px}
   }
+
+  /* ========== Accesibilidad ========== */
+  .skip-to-content{
+    position:absolute;
+    top:-44px;
+    left:0;
+    background:var(--azul);
+    color:#fff;
+    padding:10px 18px;
+    font-size:14px;
+    font-weight:600;
+    z-index:100;
+    border-radius:0 0 8px 0;
+    transition:top .2s ease;
+  }
+  .skip-to-content:focus{top:0;outline:none}
+
+  *:focus-visible{
+    outline:2px solid var(--azul);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+  .btn-yellow:focus-visible,
+  .lp-ctas .btn-primary:focus-visible{
+    outline-color:var(--amarillo);
+    outline-offset:4px;
+  }
+
 </style>
 </head>
 <body>
+
+<a class="skip-to-content" href="#main">Ir al contenido</a>
 
 <nav class="nav">
   <div class="nav-inner">
@@ -259,7 +293,7 @@
   </div>
 </nav>
 
-<main>
+<main id="main">
   <div class="err">
     <span class="err-tag">Error 404</span>
     <div class="err-num">404</div>

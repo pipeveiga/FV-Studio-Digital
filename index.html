@@ -14,8 +14,12 @@
 <link rel="canonical" href="https://fvstudio.digital/" />
 
 <!-- ============ Iconos ============ -->
-<link rel="icon" type="image/png" href="/assets/logo-icon.png" />
+<link rel="icon" sizes="any" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/logo-icon.png" />
 <link rel="apple-touch-icon" href="/assets/logo.png" />
+
+<!-- Preload critical above-the-fold image -->
+<link rel="preload" as="image" href="/assets/logo.png" fetchpriority="high" />
 
 
 <link rel="manifest" href="/manifest.json" />
@@ -1376,9 +1380,39 @@
     *{animation:none!important;transition:none!important}
     .reveal{opacity:1;transform:none}
   }
+
+  /* ========== Accesibilidad ========== */
+  .skip-to-content{
+    position:absolute;
+    top:-44px;
+    left:0;
+    background:var(--azul);
+    color:#fff;
+    padding:10px 18px;
+    font-size:14px;
+    font-weight:600;
+    z-index:100;
+    border-radius:0 0 8px 0;
+    transition:top .2s ease;
+  }
+  .skip-to-content:focus{top:0;outline:none}
+
+  *:focus-visible{
+    outline:2px solid var(--azul);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+  .btn-yellow:focus-visible,
+  .lp-ctas .btn-primary:focus-visible{
+    outline-color:var(--amarillo);
+    outline-offset:4px;
+  }
+
 </style>
 </head>
 <body>
+
+<a class="skip-to-content" href="#main">Ir al contenido</a>
 
 <!-- ============ NAVBAR ============ -->
 <nav class="nav" id="nav">
@@ -1402,7 +1436,7 @@
 </nav>
 
 <!-- ============ HERO ============ -->
-<header class="hero">
+<header class="hero" id="main">
   <div class="container">
     <div class="hero-grid">
       <div>

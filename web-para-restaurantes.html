@@ -12,8 +12,12 @@
 <meta name="theme-color" content="#1A56A0" />
 <link rel="canonical" href="https://fvstudio.digital/web-para-restaurantes" />
 
-<link rel="icon" type="image/png" href="/assets/logo-icon.png" />
+<link rel="icon" sizes="any" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/logo-icon.png" />
 <link rel="apple-touch-icon" href="/assets/logo.png" />
+
+<!-- Preload critical above-the-fold image -->
+<link rel="preload" as="image" href="/assets/logo.png" fetchpriority="high" />
 
 
 <link rel="manifest" href="/manifest.json" />
@@ -154,6 +158,8 @@
 </head>
 <body>
 
+<a class="skip-to-content" href="#main">Ir al contenido</a>
+
 <nav class="nav">
   <div class="nav-inner">
     <a href="/" class="logo" aria-label="FV Studio Digital">
@@ -172,7 +178,7 @@
   </div>
 </nav>
 
-<section class="lp-hero">
+<section class="lp-hero" id="main">
   <div class="container">
     <div class="lp-hero-grid">
       <div>
@@ -309,7 +315,7 @@
       </details>
       <details>
         <summary>¿Qué pasa si recibimos muchas reservas el mismo día?</summary>
-        <div class="answer">El sistema permite configurar la capacidad máxima por horario, así no se sobrepasan las mesas disponibles. Una vez completo un turno, los clientes ven horarios alternativos. También se pueden cerrar días específicos (feriados, eventos privados) con un click.</div>
+        <div class="answer">El sistema permite configurar la capacidad máxima por horario, así no se sobrepasan las mesas disponibles. Una vez completo un turno, los clientes ven horarios alternativos. También se pueden cerrar días específicos (feriados, eventos privados) con un click. Más sobre la estrategia digital en la <a href="/blog/pagina-web-restaurante-vs-instagram">guía sobre web propia vs Instagram</a>.</div>
       </details>
     </div>
   </div>

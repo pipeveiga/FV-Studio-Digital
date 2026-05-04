@@ -12,8 +12,12 @@
 <meta name="theme-color" content="#1A56A0" />
 <link rel="canonical" href="https://fvstudio.digital/sistema-turnos-peluquerias" />
 
-<link rel="icon" type="image/png" href="/assets/logo-icon.png" />
+<link rel="icon" sizes="any" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/logo-icon.png" />
 <link rel="apple-touch-icon" href="/assets/logo.png" />
+
+<!-- Preload critical above-the-fold image -->
+<link rel="preload" as="image" href="/assets/logo.png" fetchpriority="high" />
 
 
 <link rel="manifest" href="/manifest.json" />
@@ -153,6 +157,8 @@
 </head>
 <body>
 
+<a class="skip-to-content" href="#main">Ir al contenido</a>
+
 <nav class="nav">
   <div class="nav-inner">
     <a href="/" class="logo" aria-label="FV Studio Digital">
@@ -171,7 +177,7 @@
   </div>
 </nav>
 
-<section class="lp-hero">
+<section class="lp-hero" id="main">
   <div class="container">
     <div class="lp-hero-grid">
       <div>
@@ -317,7 +323,7 @@
       </details>
       <details>
         <summary>¿Se puede pedir seña al reservar?</summary>
-        <div class="answer">Sí, opcionalmente. Si querés reducir el ausentismo a niveles mínimos, se puede integrar el cobro de una seña (por ejemplo, el 30% del servicio) al momento de reservar. Esto se puede sumar al alcance del proyecto inicial o agregarse después.</div>
+        <div class="answer">Sí, opcionalmente. Si querés reducir el ausentismo a niveles mínimos, se puede integrar el cobro de una seña (por ejemplo, el 30% del servicio) al momento de reservar. Esto se puede sumar al alcance del proyecto inicial o agregarse después. Más detalles en la <a href="/blog/sistema-turnos-online-guia">guía completa de sistemas de turnos online</a>.</div>
       </details>
     </div>
   </div>

@@ -12,8 +12,12 @@
 <meta name="theme-color" content="#1A56A0" />
 <link rel="canonical" href="https://fvstudio.digital/web-para-abogados" />
 
-<link rel="icon" type="image/png" href="/assets/logo-icon.png" />
+<link rel="icon" sizes="any" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/logo-icon.png" />
 <link rel="apple-touch-icon" href="/assets/logo.png" />
+
+<!-- Preload critical above-the-fold image -->
+<link rel="preload" as="image" href="/assets/logo.png" fetchpriority="high" />
 
 
 <link rel="manifest" href="/manifest.json" />
@@ -389,6 +393,8 @@
 </head>
 <body>
 
+<a class="skip-to-content" href="#main">Ir al contenido</a>
+
 <nav class="nav">
   <div class="nav-inner">
     <a href="/" class="logo" aria-label="FV Studio Digital">
@@ -407,7 +413,7 @@
   </div>
 </nav>
 
-<section class="lp-hero">
+<section class="lp-hero" id="main">
   <div class="container">
     <div class="lp-hero-grid">
       <div>
@@ -535,7 +541,7 @@
     <div class="lp-faq-list">
       <details>
         <summary>¿Pueden incluir blog jurídico para SEO?</summary>
-        <div class="answer">Sí. La estructura del sitio queda preparada para sumar artículos jurídicos. La redacción de contenido recurrente puede ofrecerse como servicio complementario o gestionarse internamente desde el estudio. Los artículos sobre temas específicos (divorcio, despidos, sucesiones) son una de las herramientas más eficaces para captar consultas orgánicas.</div>
+        <div class="answer">Sí. La estructura del sitio queda preparada para sumar artículos jurídicos. La redacción de contenido recurrente puede ofrecerse como servicio complementario o gestionarse internamente desde el estudio. Los artículos sobre temas específicos (divorcio, despidos, sucesiones) son una de las herramientas más eficaces para captar consultas orgánicas. Más detalles en la <a href="/blog/pagina-web-para-abogados">guía sobre páginas web para abogados</a>.</div>
       </details>
       <details>
         <summary>¿Se pueden mostrar casos resueltos sin violar el secreto profesional?</summary>

@@ -12,8 +12,12 @@
 <meta name="theme-color" content="#1A56A0" />
 <link rel="canonical" href="https://fvstudio.digital/web-para-inmobiliarias" />
 
-<link rel="icon" type="image/png" href="/assets/logo-icon.png" />
+<link rel="icon" sizes="any" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/logo-icon.png" />
 <link rel="apple-touch-icon" href="/assets/logo.png" />
+
+<!-- Preload critical above-the-fold image -->
+<link rel="preload" as="image" href="/assets/logo.png" fetchpriority="high" />
 
 
 <link rel="manifest" href="/manifest.json" />
@@ -155,6 +159,8 @@
 </head>
 <body>
 
+<a class="skip-to-content" href="#main">Ir al contenido</a>
+
 <nav class="nav">
   <div class="nav-inner">
     <a href="/" class="logo" aria-label="FV Studio Digital">
@@ -173,7 +179,7 @@
   </div>
 </nav>
 
-<section class="lp-hero">
+<section class="lp-hero" id="main">
   <div class="container">
     <div class="lp-hero-grid">
       <div>
@@ -317,7 +323,7 @@
       </details>
       <details>
         <summary>¿Reemplaza a Zonaprop?</summary>
-        <div class="answer">No exactamente, pero te da independencia. Una web propia capta el tráfico que te busca por nombre, recomendación o búsqueda local específica, y te permite reducir progresivamente la dependencia de los portales pagos. Lo ideal es combinar ambos canales en los primeros meses y evaluar resultados.</div>
+        <div class="answer">No exactamente, pero te da independencia. Una web propia capta el tráfico que te busca por nombre, recomendación o búsqueda local específica, y te permite reducir progresivamente la dependencia de los portales pagos. Lo ideal es combinar ambos canales en los primeros meses y evaluar resultados. Más sobre cómo aparecer en búsquedas locales en la <a href="/blog/seo-local-google-mi-negocio">guía de SEO local</a>.</div>
       </details>
     </div>
   </div>

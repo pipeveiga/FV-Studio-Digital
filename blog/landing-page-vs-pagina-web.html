@@ -12,8 +12,12 @@
 <meta name="theme-color" content="#1A56A0" />
 <link rel="canonical" href="https://fvstudio.digital/blog/landing-page-vs-pagina-web" />
 
-<link rel="icon" type="image/png" href="/assets/logo-icon.png" />
+<link rel="icon" sizes="any" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/logo-icon.png" />
 <link rel="apple-touch-icon" href="/assets/logo.png" />
+
+<!-- Preload critical above-the-fold image -->
+<link rel="preload" as="image" href="/assets/logo.png" fetchpriority="high" />
 
 
 <link rel="manifest" href="/manifest.json" />
@@ -70,6 +74,8 @@
 </head>
 <body>
 
+<a class="skip-to-content" href="#main">Ir al contenido</a>
+
 <nav class="nav">
   <div class="nav-inner">
     <a href="/" class="logo" aria-label="FV Studio Digital">
@@ -98,7 +104,7 @@
   </nav>
 </div>
 
-<header class="article-header">
+<header class="article-header" id="main">
   <div class="container-narrow">
     <div class="article-meta">
       <span>Estrategia</span>
@@ -146,7 +152,7 @@
       <li><strong>Necesitás transmitir profesionalismo</strong> en industrias donde la credibilidad importa (legal, médica, financiera, consultoras).</li>
       <li><strong>Tu negocio crece y cambia</strong> y querés un espacio que pueda evolucionar.</li>
     </ul>
-    <p>Casos típicos: estudio jurídico, consultora, restaurante, peluquería, comercio local, profesional independiente, agencia.</p>
+    <p>Casos típicos: <a href="/web-para-abogados">estudios jurídicos</a>, consultoras, <a href="/web-para-restaurantes">restaurantes</a>, <a href="/sistema-turnos-peluquerias">peluquerías</a>, <a href="/web-para-arquitectos">estudios de arquitectura</a>, comercio local, profesional independiente.</p>
 
     <div class="inline-cta">
       <div class="cta-text">
