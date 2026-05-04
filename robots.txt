@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Permitir que los crawlers de imagen indexen el logo y futuros assets
+User-agent: Googlebot-Image
+Allow: /assets/
+
+# Sitemap
+Sitemap: https://fvstudio.digital/sitemap.xml
