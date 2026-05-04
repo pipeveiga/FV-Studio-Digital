@@ -1,0 +1,44 @@
+{
+  "name": "FV Studio Digital",
+  "short_name": "FV Studio",
+  "description": "Estudio digital especializado en páginas web a medida para profesionales, estudios y negocios.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FAFBFC",
+  "theme_color": "#1A56A0",
+  "lang": "es-AR",
+  "categories": ["business", "productivity", "design"],
+  "icons": [
+    {
+      "src": "/assets/logo-icon.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/logo.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Servicios",
+      "url": "/#servicios",
+      "description": "Ver los servicios de FV Studio"
+    },
+    {
+      "name": "Blog",
+      "url": "/blog",
+      "description": "Ir al blog"
+    },
+    {
+      "name": "Hablemos",
+      "url": "https://wa.me/5493412274850",
+      "description": "Iniciar conversación por WhatsApp"
+    }
+  ]
+}
