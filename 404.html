@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Página no encontrada | FV Studio Digital</title>
+<meta name="description" content="La página que buscás no está disponible. Volvé al inicio o explorá el blog de FV Studio Digital." />
+<meta name="robots" content="noindex, follow" />
+<meta name="theme-color" content="#1A56A0" />
+
+<link rel="icon" type="image/png" href="/assets/logo-icon.png" />
+<link rel="apple-touch-icon" href="/assets/logo.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --azul:#1A56A0;
+    --azul-oscuro:#102A4C;
+    --azul-claro:#7BB3F0;
+    --azul-soft:#E7F0FB;
+    --negro:#0E1726;
+    --gris-90:#1F2A3A;
+    --gris-60:#5B6776;
+    --gris-15:#E6EAEF;
+    --gris-08:#F2F4F7;
+    --bg:#FAFBFC;
+    --amarillo:#FFD43B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    background:var(--bg);
+    color:var(--negro);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+
+  /* ----- Nav ----- */
+  .nav{
+    background:rgba(250,251,252,.85);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--gris-15);
+  }
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 22px;
+    max-width:1180px;
+    margin:0 auto;
+  }
+  .logo{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-weight:700;
+    font-size:15px;
+  }
+  .logo-mark{width:38px;height:38px;border-radius:9px;display:block;flex-shrink:0}
+  .logo-text{display:flex;flex-direction:column;line-height:1.05}
+  .logo-text small{font-size:11px;color:var(--gris-60);font-weight:500;letter-spacing:.3px}
+  .nav-cta{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 18px;
+    background:var(--azul);
+    color:#fff;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:600;
+    box-shadow:0 4px 0 var(--azul-oscuro);
+    transition:transform .15s ease, background .2s ease;
+  }
+  .nav-cta:hover{background:var(--azul-oscuro);transform:translateY(-1px)}
+
+  /* ----- Main ----- */
+  main{
+    flex:1;
+    display:grid;
+    place-items:center;
+    padding:80px 22px;
+    position:relative;
+    overflow:hidden;
+  }
+  main::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at 50% 30%, var(--azul-soft) 1.5px, transparent 1.5px) 0 0/26px 26px;
+    opacity:.5;
+    pointer-events:none;
+  }
+  .err{
+    position:relative;
+    z-index:1;
+    max-width:600px;
+    text-align:center;
+  }
+  .err-num{
+    font-size:clamp(120px,22vw,200px);
+    font-weight:900;
+    line-height:.95;
+    letter-spacing:-6px;
+    color:transparent;
+    -webkit-text-stroke:3px var(--azul);
+    margin-bottom:16px;
+    position:relative;
+    display:inline-block;
+  }
+  .err-num::after{
+    content:"";
+    position:absolute;
+    bottom:14px;left:8%;right:8%;
+    height:14px;
+    background:var(--amarillo);
+    z-index:-1;
+    transform:rotate(-1.5deg);
+    opacity:.85;
+  }
+  .err-tag{
+    display:inline-block;
+    padding:6px 14px;
+    background:#fff;
+    border:1px solid var(--gris-15);
+    border-radius:99px;
+    font-size:12.5px;
+    font-weight:600;
+    color:var(--gris-60);
+    letter-spacing:.5px;
+    margin-bottom:18px;
+  }
+  .err h1{
+    font-size:clamp(28px,4.5vw,40px);
+    font-weight:800;
+    letter-spacing:-1px;
+    line-height:1.15;
+    margin-bottom:16px;
+  }
+  .err p{
+    color:var(--gris-60);
+    font-size:17px;
+    margin-bottom:36px;
+    line-height:1.6;
+  }
+  .err-ctas{
+    display:flex;
+    gap:12px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:13px 22px;
+    border-radius:8px;
+    font-size:14.5px;
+    font-weight:600;
+    transition:transform .15s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .btn-primary{
+    background:var(--azul);
+    color:#fff;
+    box-shadow:0 5px 0 var(--azul-oscuro);
+  }
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 0 var(--azul-oscuro)}
+  .btn-primary:active{transform:translateY(2px);box-shadow:0 2px 0 var(--azul-oscuro)}
+  .btn-ghost{
+    background:#fff;
+    color:var(--negro);
+    border:2px solid var(--negro);
+  }
+  .btn-ghost:hover{background:var(--negro);color:#fff}
+
+  .quick-links{
+    margin-top:50px;
+    padding-top:36px;
+    border-top:1px solid var(--gris-15);
+  }
+  .quick-links span{
+    display:block;
+    font-size:11px;
+    font-weight:700;
+    color:var(--azul);
+    text-transform:uppercase;
+    letter-spacing:1.2px;
+    margin-bottom:14px;
+  }
+  .quick-links-grid{
+    display:flex;
+    gap:12px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .quick-links-grid a{
+    padding:8px 14px;
+    background:#fff;
+    border:1px solid var(--gris-15);
+    border-radius:8px;
+    font-size:13.5px;
+    font-weight:500;
+    color:var(--gris-90);
+    transition:border-color .15s, color .15s, transform .15s;
+  }
+  .quick-links-grid a:hover{
+    border-color:var(--azul);
+    color:var(--azul);
+    transform:translateY(-1px);
+  }
+
+  /* ----- Footer ----- */
+  footer{
+    background:var(--negro);
+    color:#A8B5C7;
+    padding:30px 22px;
+    font-size:13.5px;
+    text-align:center;
+  }
+  footer a:hover{color:#fff}
+
+  @media (max-width:600px){
+    .err-num{letter-spacing:-4px}
+    main{padding:50px 22px}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo" aria-label="FV Studio Digital">
+      <img class="logo-mark" src="/assets/logo.png" alt="FV Studio Digital" width="38" height="38" />
+      <span class="logo-text">FV Studio<small>Digital</small></span>
+    </a>
+    <a class="nav-cta" href="https://wa.me/5493412274850" target="_blank" rel="noopener">Hablemos →</a>
+  </div>
+</nav>
+
+<main>
+  <div class="err">
+    <span class="err-tag">Error 404</span>
+    <div class="err-num">404</div>
+    <h1>Esta página no está disponible.</h1>
+    <p>El enlace que seguiste puede estar desactualizado o tener un error de tipeo. No es nada grave: te dejamos algunos caminos para volver a encontrarlo.</p>
+
+    <div class="err-ctas">
+      <a class="btn btn-primary" href="/">← Volver al inicio</a>
+      <a class="btn btn-ghost" href="/blog">Ir al blog</a>
+    </div>
+
+    <div class="quick-links">
+      <span>O accedé directo a una sección</span>
+      <div class="quick-links-grid">
+        <a href="/#servicios">Servicios</a>
+        <a href="/#para-quien">Para quién</a>
+        <a href="/#trabajos">Trabajos</a>
+        <a href="/#faq">Preguntas frecuentes</a>
+        <a href="/#contacto">Contacto</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © 2026 FV Studio Digital · <a href="https://wa.me/5493412274850" target="_blank" rel="noopener">WhatsApp</a> · <a href="mailto:hola@fvstudio.digital">hola@fvstudio.digital</a>
+</footer>
+
+</body>
+</html>
