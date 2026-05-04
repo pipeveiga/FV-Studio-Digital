@@ -13,6 +13,27 @@
     </image:image>
   </url>
 
+  <!-- Landings por vertical -->
+  <url>
+    <loc>https://fvstudio.digital/web-para-abogados</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://fvstudio.digital/web-para-restaurantes</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://fvstudio.digital/sistema-turnos-peluquerias</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Blog -->
   <url>
     <loc>https://fvstudio.digital/blog</loc>
     <lastmod>2026-05-04</lastmod>
@@ -50,6 +71,27 @@
 
   <url>
     <loc>https://fvstudio.digital/blog/pagina-web-vs-instagram</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://fvstudio.digital/blog/pagina-web-para-kinesiologos</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://fvstudio.digital/blog/seo-local-google-mi-negocio</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://fvstudio.digital/blog/landing-page-vs-pagina-web</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
